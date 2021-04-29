@@ -12,6 +12,8 @@ import Card from '../components/Card';
 import Input from '../components/Input';
 import NumberContainer from '../components/NumberContainer';
 import COLORS from '../utils/colorConstants';
+import RegularText from '../components/RegularText';
+import BoldText from '../components/BoldText';
 
 /** */
 const StartGameScreen = ({onStartGame}) => {
@@ -59,9 +61,9 @@ const StartGameScreen = ({onStartGame}) => {
         Keyboard.dismiss();
       }}>
       <View style={styles.screen}>
-        <Text style={styles.title}>Start a New Game!</Text>
+        <BoldText style={styles.title}>Start a New Game!</BoldText>
         <Card style={styles.inputContainer}>
-          <Text>Select a Number</Text>
+          <RegularText>Select a Number</RegularText>
           <Input
             style={styles.input}
             keyboardType="number-pad"
@@ -91,7 +93,7 @@ const StartGameScreen = ({onStartGame}) => {
         </Card>
         {isConfirmed && (
           <Card style={styles.summaryContainer}>
-            <Text>You selected</Text>
+            <RegularText>You selected</RegularText>
             <NumberContainer>{selectedNumber}</NumberContainer>
             <Button title="START GAME" onPress={handleStartGame} />
           </Card>
@@ -108,6 +110,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   title: {
+    fontFamily: 'OpenSans-Regular',
     fontSize: 20,
     marginVertical: 10,
   },

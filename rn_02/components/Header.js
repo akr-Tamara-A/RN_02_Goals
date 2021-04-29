@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import COLORS from '../utils/colorConstants';
+import BoldText from './BoldText';
 
 const Header = ({title}) => {
   const bgStyle = {
@@ -9,7 +10,7 @@ const Header = ({title}) => {
 
   return (
     <View style={[styles.header, bgStyle]}>
-      <Text style={styles.headerTitle}>{title}</Text>
+      <BoldText style={styles.headerTitle}>{title}</BoldText>
     </View>
   );
 };

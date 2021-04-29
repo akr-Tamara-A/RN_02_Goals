@@ -3,6 +3,7 @@ import {View, Text, StyleSheet, TextInput, Button, Alert} from 'react-native';
 import {genereteRandomNumber} from '../utils/genereteRandomNumber';
 import NumberContainer from '../components/NumberContainer';
 import Card from '../components/Card';
+import RegularText from '../components/RegularText';
 
 const GameScreen = ({userChoice, onGameOver}) => {
   const currentLow = useRef(1);
@@ -49,7 +50,7 @@ const GameScreen = ({userChoice, onGameOver}) => {
 
   return (
     <View style={[styles.screen]}>
-      <Text>Opponent's guess</Text>
+      <RegularText>Opponent's guess</RegularText>
       <NumberContainer>{currentGuess}</NumberContainer>
       <Card style={styles.buttonsContainer}>
         <Button title="LOWER" onPress={handleNextGuess.bind(this, 'lower')} />
@@ -58,7 +59,6 @@ const GameScreen = ({userChoice, onGameOver}) => {
           onPress={handleNextGuess.bind(this, 'greater')}
         />
       </Card>
-      <Text>{}</Text>
     </View>
   );
 };

@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import COLORS from '../utils/colorConstants';
+import RegularText from './RegularText';
 
 const NumberContainer = ({children, style}) => {
   const borderColor = {
@@ -9,7 +10,7 @@ const NumberContainer = ({children, style}) => {
 
   return (
     <View style={[styles.container, borderColor, style]}>
-      <Text style={styles.number}>{children}</Text>
+      <RegularText style={styles.number}>{children}</RegularText>
     </View>
   );
 };
