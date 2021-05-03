@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import {
   View,
-  Text,
   StyleSheet,
   Button,
   TouchableWithoutFeedback,
@@ -14,6 +13,7 @@ import NumberContainer from '../components/NumberContainer';
 import COLORS from '../utils/colorConstants';
 import RegularText from '../components/RegularText';
 import BoldText from '../components/BoldText';
+import MainButton from '../components/MainButton';
 
 /** */
 const StartGameScreen = ({onStartGame}) => {
@@ -95,7 +95,8 @@ const StartGameScreen = ({onStartGame}) => {
           <Card style={styles.summaryContainer}>
             <RegularText>You selected</RegularText>
             <NumberContainer>{selectedNumber}</NumberContainer>
-            <Button title="START GAME" onPress={handleStartGame} />
+            <MainButton text="START GAME" onPress={handleStartGame} />
+            {/* <Button title="START GAME" onPress={handleStartGame} /> */}
           </Card>
         )}
       </View>

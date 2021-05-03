@@ -1,3 +1,4 @@
+import {SafeAreaProvider} from 'react-native-safe-area-context';
 import React, {useState} from 'react';
 import {SafeAreaView, StyleSheet} from 'react-native';
 import Header from './components/Header';
@@ -27,22 +28,24 @@ const App = () => {
   };
 
   return (
-    <SafeAreaView style={styles.screen}>
-      <Header title="Guess a number" />
-      {!userNumber && guessRounds === 0 && (
-        <StartGameScreen onStartGame={handleGameStart} />
-      )}
-      {userNumber && guessRounds === 0 && (
-        <GameScreen userChoice={userNumber} onGameOver={handleGameOver} />
-      )}
-      {userNumber && guessRounds > 0 && (
-        <GameOverScreen
-          rounds={guessRounds}
-          userNumber={userNumber}
-          startNewGame={handleStartNewGame}
-        />
-      )}
-    </SafeAreaView>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.screen}>
+        <Header title="Guess a number" />
+        {!userNumber && guessRounds === 0 && (
+          <StartGameScreen onStartGame={handleGameStart} />
+        )}
+        {userNumber && guessRounds === 0 && (
+          <GameScreen userChoice={userNumber} onGameOver={handleGameOver} />
+        )}
+        {userNumber && guessRounds > 0 && (
+          <GameOverScreen
+            rounds={guessRounds}
+            userNumber={userNumber}
+            startNewGame={handleStartNewGame}
+          />
+        )}
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 

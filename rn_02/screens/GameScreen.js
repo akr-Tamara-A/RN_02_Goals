@@ -1,9 +1,11 @@
 import React, {useEffect, useRef, useState} from 'react';
-import {View, Text, StyleSheet, TextInput, Button, Alert} from 'react-native';
+import {View, StyleSheet, Alert} from 'react-native';
 import {genereteRandomNumber} from '../utils/genereteRandomNumber';
 import NumberContainer from '../components/NumberContainer';
 import Card from '../components/Card';
 import RegularText from '../components/RegularText';
+import ActionButton from '../components/ActionButton';
+import {Icon} from 'react-native-elements';
 
 const GameScreen = ({userChoice, onGameOver}) => {
   const currentLow = useRef(1);
@@ -53,11 +55,12 @@ const GameScreen = ({userChoice, onGameOver}) => {
       <RegularText>Opponent's guess</RegularText>
       <NumberContainer>{currentGuess}</NumberContainer>
       <Card style={styles.buttonsContainer}>
-        <Button title="LOWER" onPress={handleNextGuess.bind(this, 'lower')} />
-        <Button
-          title="GREATER"
-          onPress={handleNextGuess.bind(this, 'greater')}
-        />
+        <ActionButton onPress={handleNextGuess.bind(this, 'lower')}>
+          <Icon name="arrow-drop-down" color="white" size={50} />
+        </ActionButton>
+        <ActionButton onPress={handleNextGuess.bind(this, 'greater')}>
+          <Icon name="arrow-drop-up" color="white" size={50} />
+        </ActionButton>
       </Card>
     </View>
   );
@@ -72,7 +75,7 @@ const styles = StyleSheet.create({
   buttonsContainer: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    marginTop: 20,
+    marginTop: 10,
     width: 300,
     maxWidth: '80%',
   },
