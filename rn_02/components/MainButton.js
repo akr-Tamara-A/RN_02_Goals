@@ -6,7 +6,7 @@ import RegularText from './RegularText';
 const MainButton = ({text, onPress}) => {
   return (
     <TouchableOpacity activeOpacity={0.8} onPress={onPress}>
-      <View style={[styles.button, {backgroundColor: COLORS.primary}]}>
+      <View style={styles.button}>
         <RegularText style={styles.text}>{text}</RegularText>
       </View>
     </TouchableOpacity>
@@ -20,6 +20,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 25,
+    backgroundColor: COLORS.primary,
   },
   text: {
     color: 'white',

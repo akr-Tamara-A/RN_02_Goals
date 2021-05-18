@@ -1,15 +1,11 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Dimensions, StyleSheet} from 'react-native';
 import COLORS from '../utils/colorConstants';
 import BoldText from './BoldText';
 
 const Header = ({title}) => {
-  const bgStyle = {
-    backgroundColor: COLORS.primary,
-  };
-
   return (
-    <View style={[styles.header, bgStyle]}>
+    <View style={styles.header}>
       <BoldText style={styles.headerTitle}>{title}</BoldText>
     </View>
   );
@@ -18,13 +14,14 @@ const Header = ({title}) => {
 const styles = StyleSheet.create({
   header: {
     width: '100%',
-    height: 60,
+    height: Dimensions.get('window').width > 400 ? 60 : 40,
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: COLORS.primary,
   },
   headerTitle: {
     color: 'black',
-    fontSize: 18,
+    fontSize: Dimensions.get('window').width > 400 ? 18 : 16,
   },
 });
 

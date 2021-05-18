@@ -1,15 +1,11 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, StyleSheet, Dimensions} from 'react-native';
 import COLORS from '../utils/colorConstants';
 import RegularText from './RegularText';
 
 const NumberContainer = ({children, style}) => {
-  const borderColor = {
-    borderColor: COLORS.primary,
-  };
-
   return (
-    <View style={[styles.container, borderColor, style]}>
+    <View style={styles.container}>
       <RegularText style={styles.number}>{children}</RegularText>
     </View>
   );
@@ -20,12 +16,14 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderRadius: 10,
     padding: 10,
-    marginVertical: 10,
+    marginVertical: Dimensions.get('window').height > 600 ? 10 : 5,
     alignItems: 'center',
     justifyContent: 'center',
+    minWidth: 50,
+    borderColor: COLORS.primary,
   },
   number: {
-    fontSize: 22,
+    fontSize: Dimensions.get('window').height > 600 ? 22 : 20,
   },
 });
 
